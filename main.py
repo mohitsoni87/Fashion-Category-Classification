@@ -15,8 +15,6 @@ model = tf.saved_model.load(app.config['MODEL_PATH'])
 # Mapping from class index to class name
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
-
-
 # Function to preprocess image for prediction
 def preprocess_image(image_path):
     # Load the image
