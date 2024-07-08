@@ -9,6 +9,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 app.config['MODEL_PATH'] = 'saved_model/cnn_model'
 
+
 # Load your TensorFlow model
 model = tf.saved_model.load(app.config['MODEL_PATH'])
 
