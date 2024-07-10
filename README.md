@@ -43,6 +43,8 @@ This project demonstrates how to deploy a trained machine learning model using a
 
 3. Upload an image and receive predictions on the type of fashion item.
 
+
+
 ### Create Docker Image & Deploy Tensorflow Model & Flask App in Local using Docker
 
 1. The Default Dockerfile in the root directory has the docker configuration for Google Cloud.
