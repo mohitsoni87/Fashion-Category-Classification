@@ -10,9 +10,6 @@ This repository contains a web application that classifies fashion items using a
 - [Installation](#installation)
 - [Usage](#usage)
 - [Model Details](#model-details)
-- [API Endpoints](#api-endpoints)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Project Overview
 
