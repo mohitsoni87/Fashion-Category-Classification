@@ -1,0 +1,40 @@
+steps:
+  # Step 1: Run unit tests
+  - name: 'python:3.8'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "Running unit tests..."
+        pip install -r requirements.txt  # Install dependencies if needed
+        pytest
+        if [ $? -ne 0 ]; then
+          echo "Tests failed. Exiting..."
+          exit 1
+        fi
+        echo "Tests passed."
+
+  # Step 2: Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/perfect-coil-428722-b1/upload_file:$COMMIT_SHA'
+      - '.'
+
+  # Step 3: Push the Docker image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/perfect-coil-428722-b1/upload_file:$COMMIT_SHA'
+
+  # Step 4: Deploy the application to Cloud Run
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'fashion-category-classifier'
+      - '--image=gcr.io/perfect-coil-428722-b1/upload_file:$COMMIT_SHA'
+      - '--platform=managed'
+      - '--region=us-central1'
+      - '--allow-unauthenticated'
