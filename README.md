@@ -1,63 +1,82 @@
-# Fashion MNIST Model Training and Hyperparameter Tuning
+# CNN Fashion MNIST Web App
 
-This Jupyter notebook demonstrates the training of Convolutional Neural Networks (CNN) and Feedforward Neural Networks (FNN) on the Fashion MNIST dataset using TensorFlow and Keras. Additionally, it leverages the Keras Tuner library for hyperparameter optimization using Bayesian Optimization.
+This repository contains a web application that classifies fashion items using a Convolutional Neural Network (CNN) trained on the Fashion MNIST dataset. The application allows users to upload images and receive predictions on the type of fashion item depicted.
 
 ## Table of Contents
-1. [Installation](#installation)
-2. [Imports](#imports)
-3. [Data Loading and Preprocessing](#data-loading-and-preprocessing)
-4. [Constants and TensorBoard Setup](#constants-and-tensorboard-setup)
-5. [Model Builders](#model-builders)
-6. [Hyperparameter Tuning](#hyperparameter-tuning)
-7. [Model Evaluation and Selection](#model-evaluation-and-selection)
-8. [Saving the Best Model](#saving-the-best-model)
+
+- [Project Overview](#project-overview)
+- [Folder Structure](#folder-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Model Details](#model-details)
+- [API Endpoints](#api-endpoints)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Project Overview
+
+This project demonstrates how to deploy a trained machine learning model using a Flask web application. The model is a CNN trained on the Fashion MNIST dataset, which consists of grayscale images of various clothing items. Users can interact with the web app by uploading images and receiving predictions.
+
+
 
 ## Installation
-To run this notebook, you need to install the `keras-tuner` library. You can install it using the following command:
 
-```bash
-pip install keras-tuner
-```
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/cnn-fashion-mnist-webapp.git
+    cd cnn-fashion-mnist-webapp
+    ```
 
-## Imports
-The notebook requires several libraries including TensorFlow, Keras utilities, and Keras Tuner for hyperparameter optimization.
+2. Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-## Data Loading and Preprocessing
-The Fashion MNIST dataset is loaded and preprocessed:
-•	The dataset is reshaped and normalized.
-•	Labels are converted to categorical format.
+## Usage
 
+1. Start the Flask web application:
+    ```bash
+    python main.py
+    ```
 
-## Constants and TensorBoard Setup
-Constants for model training, such as input shape, batch size, epochs, and log directories for TensorBoard, are defined. TensorBoard callbacks are set up for monitoring the training process.
+2. Open your browser and navigate to `http://localhost:5000`.
 
-## Model Builders
-Two model builder functions are defined:
-•	build_simple_cnn: Builds a simple Convolutional Neural Network (CNN).
-•	build_feedforward_nn: Builds a Feedforward Neural Network (FNN).
+3. Upload an image and receive predictions on the type of fashion item.
 
-## Hyperparameter Tuning
-The notebook uses the Bayesian Optimization tuner from Keras Tuner to find the optimal hyperparameters for both CNN and FNN models. The tuning process involves:
-•	Defining the search space for hyperparameters.
-•	Running the tuner to search for the best hyperparameters based on validation accuracy.
+## Model Details
 
-## Model Evaluation and Selection
-The best models from both CNN and FNN tuners are evaluated on the test set. The model with the higher validation accuracy is selected as the better model.
+The CNN model is trained on the Fashion MNIST dataset, which includes the following classes:
 
-## Saving the Best Model
-The best model is saved to the disk for future use.
-How to Run the Notebook
-1.	Install the required libraries.
-2.	Run each cell in the notebook sequentially.
-3.	Monitor the training process using TensorBoard.
-4.	After training, the best model will be saved automatically.
-   
-## Note
-The notebook includes detailed markdown cells explaining each step, making it easier to follow along and understand the process of model training and hyperparameter tuning.
-Acknowledgements
-•	TensorFlow and Keras for providing the deep learning framework.
-•	Keras Tuner for enabling easy and efficient hyperparameter tuning.
-•	Fashion MNIST dataset for the data used in this notebook.
+- T-shirt/top
+- Trouser
+- Pullover
+- Dress
+- Coat
+- Sandal
+- Shirt
+- Sneaker
+- Bag
+- Ankle boot
 
+The model files are stored in the `saved_model/cnn_model` directory. The model was trained using TensorFlow and saved in the TensorFlow SavedModel format.
 
-For any questions or issues, please open an issue in this repository.
+## API Endpoints
+
+The web application provides the following endpoints:
+
+- `GET /`: Home page with image upload form
+- `POST /predict`: Endpoint to handle image upload and return predictions
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature`).
+3. Commit your changes (`git commit -m 'Add your feature'`).
+4. Push to the branch (`git push origin feature/your-feature`).
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.

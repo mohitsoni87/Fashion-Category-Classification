@@ -19,6 +19,3 @@ RUN pip install -r requirements.txt
 # to be equal to the cores available.
 # Timeout is set to 0 to disable the timeouts of the workers to allow Cloud Run to handle instance
 CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
-
-# Run the tests and then the Flask app
-#CMD ["./run_tests_and_server.sh"]
