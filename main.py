@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 import numpy as np
@@ -12,6 +12,7 @@ app.config['MODEL_PATH'] = 'saved_model/cnn_model'
 
 # Load your TensorFlow model
 model = tf.saved_model.load(app.config['MODEL_PATH'])
+
 
 # Mapping from class index to class name
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
@@ -110,6 +111,14 @@ def upload_file():
             image_url = url_for('static', filename='uploads/' + file.filename)
             return render_template('index.html', prediction=predicted_label, image_url=image_url)
     return render_template('index.html')
+
+@app.route('/check_model', methods=['GET'])
+def check_model():
+    print("Hello!", app.config['MODEL_PATH'])
+    if os.path.exists(app.config['MODEL_PATH']) and os.path.isdir(app.config['MODEL_PATH']):
+        return jsonify({'message': 'Model exists'}), 200
+    else:
+        return jsonify({'message': 'Model does not exist'}), 404
 
 if __name__ == '__main__':
 
