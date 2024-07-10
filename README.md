@@ -24,8 +24,8 @@ This project demonstrates how to deploy a trained machine learning model using a
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/cnn-fashion-mnist-webapp.git
-    cd cnn-fashion-mnist-webapp
+    git clone https://github.com/mohitsoni87/Fashion-Category-Classification
+    cd Fashion-Category-Classification
     ```
 
 2. Install the required dependencies:
@@ -60,24 +60,3 @@ The CNN model is trained on the Fashion MNIST dataset, which includes the follow
 - Ankle boot
 
 The model files are stored in the `saved_model/cnn_model` directory. The model was trained using TensorFlow and saved in the TensorFlow SavedModel format.
-
-## API Endpoints
-
-The web application provides the following endpoints:
-
-- `GET /`: Home page with image upload form
-- `POST /predict`: Endpoint to handle image upload and return predictions
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/your-feature`).
-3. Commit your changes (`git commit -m 'Add your feature'`).
-4. Push to the branch (`git push origin feature/your-feature`).
-5. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
