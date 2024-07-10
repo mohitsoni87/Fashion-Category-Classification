@@ -1,4 +1,4 @@
-# Fashion MNIST Model Training and Hyperparameter Tuning
+# Fashion MNIST Model Training and Hyperparameter Tuning 
 
 This Jupyter notebook demonstrates the training of Convolutional Neural Networks (CNN) and Feedforward Neural Networks (FNN) on the Fashion MNIST dataset using TensorFlow and Keras. Additionally, it leverages the Keras Tuner library for hyperparameter optimization using Bayesian Optimization.
 
