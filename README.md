@@ -1,7 +1,7 @@
 
 # CNN Fashion MNIST Web App
 
-This repository contains a web application that classifies fashion items using a Convolutional Neural Network (CNN) trained on the Fashion MNIST dataset. The application allows users to upload images and receive predictions on the type of fashion item depicted.
+This repository contains a web application that classifies fashion items using a Convolutional Neural Network (CNN) trained on the Fashion MNIST dataset. The application allows users to upload images and receive predictions on the type of fashion item depicted. 
 
 ## Table of Contents
 
