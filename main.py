@@ -128,6 +128,7 @@ def upload_file():
             preds = predict(img_array)
             predicted_class = np.argmax(preds[0])
             predicted_label = "The uploaded image is a " + class_names[predicted_class]
+            print("predicted_label", predicted_label)
             image_url = url_for("static", filename="uploads/" + file.filename)
             return render_template(
                 "index.html", prediction=predicted_label, image_url=image_url
