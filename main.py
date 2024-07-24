@@ -17,7 +17,7 @@ model = tf.saved_model.load(app.config["MODEL_PATH"])
 
 # Mapping from class index to class name
 class_names = [
-    "T-shirt/top",
+    "T-shirt/top ",
     "Trouser",
     "Pullover",
     "Dress",
